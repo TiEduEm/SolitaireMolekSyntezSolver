@@ -60,3 +60,24 @@ int is_ordered(char prev, char next) {
             return 0;
     }
 }
+int isSolved(struct gameState input) {
+    // Triggers if a cell is marked as BOTH filled and empty
+    if (input.isEmpty & input.isFilledIn) {
+        system("vlc bugs/bitmap_overlap.mp3 &");
+
+        fprintf(stderr,
+            "Bug, bug, bug, bug, bug, bug, bug, bug, bug, sahur!\n\n"
+            "A terrifying anomaly that haunts developers at 3 AM. "
+            "Legend says if a bit is simultaneously 1 in 'isEmpty' and 1 in 'isFilledIn', "
+            "a memory-corrupting creature spawns directly inside your call stack.\n\n"
+            "Hiii, how scary! Schrödinger's cell has manifested in your code—it is "
+            "both completely full and totally empty at the same time. "
+            "This Bug Bug creature marches through your terminal beating its drum: "
+            "'bug, bug, bug, bug, bug, bug, bug'. "
+            "Send this to a dev who forgot to isolate their bitwise flags before prod drops!\n"
+        );
+        return 0;
+    }
+
+    return ((input.isFilledIn | input.isEmpty) & 0x3F) == 0x3F;
+}

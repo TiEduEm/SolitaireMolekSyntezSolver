@@ -7,7 +7,8 @@
 
 struct gameState {
     char column[6][36];
-    int filledin; // is a bitmask
+    int isFilledIn; // is a bitmask
+    int isEmpty;
 };
 
 void read(struct gameState *output);
